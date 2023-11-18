@@ -1,3 +1,7 @@
+body {
+color:  rgb(212, 129, 33);
+}
+
 .bg-laranja {
   background-color: rgb(212, 129, 33);
 }
@@ -15,3 +19,11 @@
 img {
   width: 100%;
 }
+
+#imgpos {
+  position:absolute;
+  left:50%;
+  top:50%;
+  margin-left:-110px;
+  margin-top:-40px;
+  }
