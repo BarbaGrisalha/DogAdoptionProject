@@ -1,5 +1,17 @@
-
 .bg-laranja {
-    background-color: rgb(212, 129, 33);
-  }
-  
+  background-color: rgb(212, 129, 33);
+}
+
+.card {
+  width: 20rem;
+  margin: 2rem;
+}
+
+.image-grid-container {
+  display: grid;
+
+}
+
+img {
+  width: 100%;
+}
