@@ -48,43 +48,61 @@
     </header>
 
 
-    <div class="position-absolute bottom-10 end-10">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <p>
+                <h1> Login/Registre-se</h1>
+                <p>
+                <p>Efetue o seu login para aceder a página de informações do seu futuro pet!
+                <p>Se não é inscrito, registre-se e desfrute das vantagens de ser um mebro do I LOVE PET!
+                </p>
+                <form>
+                    <input type="hidden" name="recipient" value="2232492@my.ipleiria.pt">
+                    <input type="hidden" name="redirect" value="#">
+                    <input type="hidden" name="subject" value="assunto">
+                    <input type="hidden" name="email" value="2232492@my.ipleiria.pt">
 
+                    <p>
+                        Nome:<br />
+                        <input type="text" size="30" name="nome">
+                    </p>
 
-        <form>
-            <div class="container">
-                <label for="exampleInputEmail1" class="form-label">Login</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <p>
+                        E-mail:<br />
+                        <input type="text" size="30" name="email">
+                    </p>
+
+                    <p>
+                        Senha:<br />
+                        <input type="password" size="50" name="password">
+                    </p>
+
+                    <div class=".container">
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                    </div>
+                </form>
             </div>
-            <div class="container">
-                <label for="exampleInputPassword1" class="form-label">Senha</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
-            </div>
-            <p></p>
-            <div class="container">
-            <button type="submit" class="btn btn-primary">Enviar</button>    
-            </div>  
-        </form>
-    </div>
+        </div>
 
 
-    <footer class="bg-laranja fixed-bottom">
-        <nav class="container-fluid">
-            <div class="row - right">
-                <div class="col-auto me-auto">
-                    <a href="index.html">
-                        <img src="img/logomarca.png" alt="Logo" width="80" height="80">
-                    </a>
+        <footer class="bg-laranja fixed-bottom">
+            <nav class="container-fluid">
+                <div class="row - right">
+                    <div class="col-auto me-auto">
+                        <a href="index.html">
+                            <img src="img/logomarca.png" alt="Logo" width="80" height="80">
+                        </a>
+                    </div>
+                    <div class="col-auto">
+                        <p class="m-0 text-center text-white">Copyright &copy; I LOVE PET - 2023</p>
+                    </div>
+
                 </div>
-                <div class="col-auto">
-                    <p class="m-0 text-center text-white">Copyright &copy; I LOVE PET - 2023</p>
-                </div>
+            </nav>
+        </footer>
 
-            </div>
-        </nav>
-    </footer>
-
-    <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
