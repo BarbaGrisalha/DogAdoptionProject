@@ -1,3 +1,39 @@
+
+#divleft {
+    float: left;
+    width: 48%;
+    margin-right: 2%;
+    height: 50px;
+    background-color: rgb(212, 129, 33);
+    margin-top: 25px;
+    
+   
+}
+
+#divright {
+    float: left;
+    width: 48%;
+    margin-right: 2%;
+    height: 50px;
+    background-color: rgb(212, 129, 33);
+    text-align: right;
+    margin-top: 25px;
+}
+
+#Adotar {
+  width: 50%;
+  height: 30px;
+  background-color: rgb(212, 129, 33);
+  
+}
+.btn-btn-Favoritos {
+  width: 50%;
+  height: 30px;
+  background-color: rgb(190, 26, 7);
+  
+}
+
+
 body {
 color:  rgb(212, 129, 33);
 }
