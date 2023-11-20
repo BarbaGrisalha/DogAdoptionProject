@@ -1,6 +1,4 @@
-body, html{
-  height: 100%;
-}
+
 
 #divleft {
     float: left;
@@ -69,3 +67,20 @@ img {
   margin-left:-110px;
   margin-top:-40px;
   }
+
+.search-sec{
+    padding: 1rem;
+}
+.search-slt{
+  display: block;
+  width: 100%;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: rgb(217, 143, 46);
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #cccccc;
+  height: calc(3rem + 2px) !important;
+  border-radius:0;
+}
+
