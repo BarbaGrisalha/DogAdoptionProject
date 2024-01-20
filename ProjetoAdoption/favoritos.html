@@ -54,112 +54,58 @@
                     <p>
                     <h1>Favoritos</h1>
                     <p>
-                    <div class="container justify-content-center"></div>
+                    <div class="container justify-content-center">
+                        <div id="favorites-container" class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+
+                        </div>
+
+
+                    </div>
                     Veja aqui os pets que você adicionou como favoritos
                     </p>
                     </p>
                 </div>
-
-
-                <div class="container px-4 px-lg-5 mt-5">
-                    <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-                        <div class="col mb-5">
-                            <div class="card h-30">
-                               
-                                <img class="card-img-top object-fit-cover" src="imagempet/dog1.jpeg" width="200" height="300" alt="..." />
-                               
-                                <div class="card-body p-4">
-                                    <div class="text-center">
-                                       
-                                        <h5 class="fw-bolder">Pablito</h5>
-                                        <div class="d-flex justify-content-center small text-warning mb-2">
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                               
-                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-
-                                    <div class="text-center"><a class="btn btn-primary" href="#">Remover</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col mb-5">
-                            <div class="card h-30">
-                              
-                                <img class="card-img-top object-fit-cover" src="imagempet/dog2.jpg" width="200" height="300"
-                                    alt="..." />
-                               
-                                <div class="card-body p-4">
-                                    <div class="text-center">
-                                     
-                                        <h5 class="fw-bolder">Beca</h5>
-                                     
-                                        <div class="d-flex justify-content-center small text-warning mb-2">
-                                        </div>
-                                    </div>
-                                </div>
-                            
-                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-
-                                    <div class="text-center"><a class="btn btn-primary" href="#">Remover</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col mb-5">
-                            <div class="card h-30">
-                               
-                                <img class="card-img-top object-fit-cover" src="imagempet/doguinho.jpeg" width="200" height="300"
-                                    alt="..." />
-                               
-                                <div class="card-body p-4">
-                                    <div class="text-center">
-                                       
-                                        <h5 class="fw-bolder">Tufa</h5>
-                                        <div class="d-flex justify-content-center small text-warning mb-2">
-                                        </div>
-                                    </div>
-                                </div>
-                               
-                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-
-
-                                    <div class="text-center"><a class="btn btn-primary" href="#">Remover</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col mb-5">
-                            <div class="card h-100">
-                              
-                                <img class="card-img-top object-fit-cover" src="img/download (7).jpeg" width="200" height="300"
-                                    alt="..." />
-                              
-                                <div class="card-body p-4">
-                                    <div class="text-center">
-                                     
-                                        <h5 class="fw-bolder">Marie</h5>
-                                       
-                                        <div class="d-flex justify-content-center small text-warning mb-2">
-                                        </div>
-                                    </div>
-                                </div>
-                               
-                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-
-                                    <div class="text-center"><a class="btn btn-primary" href="#">Remover</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </section>
     </container>
+    <script>
+        document.addEventListener('DOMContentLoaded',function(){
+            let favorites=JSON.parse(localStorage.getItem('favorites')) || [];
+
+            const favoritesContainer = document.getElementById('favorites-container');
+
+            favorites.forEach(function(imageId){
+                const card=createCardForImage(imageId);
+                favoritesContainer.appendChild(card);
+            });
+            function createCardForImage(imageId){
+                const cardDiv = document.createElement('div');
+                cardDiv.classList.add('col','mb-5');
+
+                cardDiv.innerHTML = 
+                <div class="card h-30">
+                    <img class="card-img-top object-fit-cover" src="caminho/para/as/imagens/${imageId}.jpeg" width="200" height="300" alt="${imageId}" />
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <h5 class="fw-bolder">${imageId}</h5>
+                            <div class="d-flex justify-content-center small text-warning mb-2">
+                                <!-- Adicione qualquer informação adicional aqui -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <div class="text-center">
+                            <a class="btn btn-primary" href="#">Remover</a>
+                        </div>
+                    </div>
+                </div>
+
+                ;
+                return card;
+
+            }
+        });
+    </script>
 
 
     <footer class="bg-laranja d-flex">
