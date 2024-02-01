@@ -56,9 +56,6 @@ img.footer-logo {
   width: 60px;
 }
 
-img {
-  width: 100%;
-}
 
 #imgpos {
   position:absolute;
@@ -84,3 +81,14 @@ img {
   border-radius:0;
 }
 
+.accordion{
+  font-family: 'Lucida Console', 'Courier New', monospace;
+  margin: auto;
+  background-color: #7dc197;
+
+  
+
+}
+.card-body{
+  background-color: #007fff;
+}

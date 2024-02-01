@@ -39,6 +39,9 @@
                         <li class="nav-item"><a class="nav-link text-center text-white"
                                 href="contactos.html">Contactos</a></li>
                         <li class="nav-item"><a class="nav-link text-center text-white"
+                                    href="faq.html">FAQ</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link text-center text-white"
                                 href="login_registre-se.html">Login/Registe-se</a>
                         </li>
                     </ul>
@@ -49,18 +52,16 @@
 
     <container>
         <section class="py-5">
-            <div class="container">
+            <div class="container px-4 px-lg-5 mt-5">
                 <div class="container justify-content-center">
                     <p>
-                    <h1>Favoritos</h1>
+                        <h1>Meus Favoritos</h1>
                     <p>
-                    <div class="container justify-content-center">
-                        <div id="favorites-container" class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-
+                        <button id="limpar-tudo" class="btn btn-danger mb-3">Limpar Tudo</button>
+                        <div class="container justify-content-center">
+                            <div id="favorites-container" class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                            </div>
                         </div>
-
-
-                    </div>
                     Veja aqui os pets que você adicionou como favoritos
                     </p>
                     </p>
@@ -68,46 +69,6 @@
             </div>
         </section>
     </container>
-    <script>
-        document.addEventListener('DOMContentLoaded',function(){
-            let favorites=JSON.parse(localStorage.getItem('favorites')) || [];
-
-            const favoritesContainer = document.getElementById('favorites-container');
-
-            favorites.forEach(function(imageId){
-                const card=createCardForImage(imageId);
-                favoritesContainer.appendChild(card);
-            });
-            function createCardForImage(imageId){
-                const cardDiv = document.createElement('div');
-                cardDiv.classList.add('col','mb-5');
-
-                cardDiv.innerHTML = 
-                <div class="card h-30">
-                    <img class="card-img-top object-fit-cover" src="caminho/para/as/imagens/${imageId}.jpeg" width="200" height="300" alt="${imageId}" />
-                    <div class="card-body p-4">
-                        <div class="text-center">
-                            <h5 class="fw-bolder">${imageId}</h5>
-                            <div class="d-flex justify-content-center small text-warning mb-2">
-                                <!-- Adicione qualquer informação adicional aqui -->
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                        <div class="text-center">
-                            <a class="btn btn-primary" href="#">Remover</a>
-                        </div>
-                    </div>
-                </div>
-
-                ;
-                return card;
-
-            }
-        });
-    </script>
-
-
     <footer class="bg-laranja d-flex">
         <nav class="container-fluid">
             <div class="row - right">
@@ -125,6 +86,61 @@
     </footer>
 
     <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const favoritosContainer = document.getElementById('favorites-container');
+            const limparTudoBtn = document.getElementById('limpar-tudo');
+
+            //Aqui eu limito a quatro imagens.
+            const maxImagens = 4;
+            const startIndex = localStorage.length > maxImagens ? localStorage.length - maxImagens : 0 ;
+
+            
+            for (let i = startIndex; i < localStorage.length; i++) {
+                const key =  `animalImage${i}`; 
+                const imageSrc = localStorage.getItem(key);
+                const card=createCard(imageSrc,i);
+                favoritosContainer.appendChild(card);
+            }
+        });
+            //botão limpa tudo.
+            limparTudoBtn.addEventListener('click',function(){
+                favoritosContainer.innerHTML='';
+                localStorage.clear();
+            });
+            //botão limpar a opção que foi feita
+            favoritosContainer.addEventListener("click", function(event){
+                if(event.target.classList.contains('btn-remover')){
+                    const index = event.target.getAttribute('data-index');
+                    const key = `animalImage${index}`;
+                    localStorage.removeItem(key);
+                    favoritosContainer.removeChild(event.target.parentElement.parentElement);
+                }
+        });
+
+        function createCard(imageSrc,index) {//inclui o index
+            const colDiv = document.createElement('div');
+            colDiv.className = 'col mb-5';
+            colDiv.innerHTML = `
+                <div class="card h-100">
+                    <button class="btn btn-danger btn-remover" data-index="${index}">Remover</button>
+                    <img class="card-img-top object-fit-cover" src="${imageSrc}" width="200" height="300" alt="Animal favorito" />
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <h5 class="fw-bolder">Nome do Animal</h5>
+                            <div class="d-flex justify-content-center small text-warning mb-2"></div>
+                        </div>
+                    </div>
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <div class="text-center">
+                           
+                        </div>
+                    </div>
+                </div>
+            `;
+            return colDiv;
+        }
+    </script>
 </body>
 
-</html>
+</html> 
